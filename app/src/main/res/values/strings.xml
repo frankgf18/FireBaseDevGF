@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FireBaseDevGF</string>
+    <string name="tvEnviarAlgo">Envia algo...</string>
+    <string name="btnEnviar">Enviar</string>
 </resources>

@@ -29,9 +29,7 @@ class MainActivity : AppCompatActivity() {
                 binding.nombre.text = "Firebase Modo remoto: $data"
             }
 
-            override fun onCancelled(error: DatabaseError) {
-
-            }
+            override fun onCancelled(error: DatabaseError) {}
 
         }
 
@@ -39,17 +37,13 @@ class MainActivity : AppCompatActivity() {
 
         dataRef.addValueEventListener(listener)
 
+        binding.btnEnviar.setOnClickListener {
+            dataRef.setValue(binding.tvEnviarAlgo.editText!!.text.toString())
+        }
 
-        val llamada = object : ValueEventListener{
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val data = snapshot.getValue(String::class.java)
-                binding.nombre.text = "FireB"
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
-            }
-
+        binding.btnEnviar.setOnLongClickListener {
+            dataRef.removeValue()
+            true
         }
 
     }
